@@ -8,6 +8,8 @@ class Player:
         self._games_played = []
         self._game_played_count = {}
 
+        self.all.append(self)
+
     def __repr__(self):
         return f"""
             Player: {self.username}
@@ -58,5 +60,19 @@ class Player:
     
     @classmethod
     def highest_scored(cls, game):
-        pass
+        from classes.game import Game
+        
+        scores_list = []
+
+        if type(game) == Game:
+            for player in Player.all:
+                scores_list.append(game.average_score(player))
+        else:
+            raise Exception("game type not valid")
+        
+        high_score = max(scores_list)
+        
+        for player in Player.all:
+            if game.average_score(player) == high_score:
+               return player
         

@@ -23,5 +23,6 @@ if __name__ == '__main__':
     r4 = Result(emkay, pinball, 5000)
     r5 = Result(ttags, horseshoes, 45)
     r6 = Result(prob, horseshoes, 100)
+    r7 = Result(ttags, skiball, 2000)
 
     ipdb.set_trace()
