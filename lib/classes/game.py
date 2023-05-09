@@ -42,9 +42,10 @@ class Game:
     def average_score(self, player):
         player_results = []
         for result in self._results:
-            if result.player == player:
+            if result.player == player and result.score > 0:
                 player_results.append(result.score)
-            
-        avg_score = (sum(player_results)) / len(player_results)
-        return avg_score
+                avg_score = (sum(player_results)) / len(player_results)
+                return avg_score
+            else:
+                return 0
         
